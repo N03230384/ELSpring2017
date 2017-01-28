@@ -1,2 +1,3 @@
 # Code Directory. 
-All your code should go here. Make sure files are named as explicitly as possible.
+N03230384
+this is the code directory all code goes in here

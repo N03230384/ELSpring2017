@@ -1,2 +1,3 @@
 ## A directory for misellaneous stuff. 
-Nothing really relevant should be here!
+N03230384
+This is the misc section of the directory.
