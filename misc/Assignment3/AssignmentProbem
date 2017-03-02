@@ -1,0 +1,38 @@
+Assignment 3 - Due by March 9, 11.59 PM
+1. Setup GPIO on your Pi, and set up the blinking LED as I described in class and is on the
+BlackBoard in a PDF file.
+
+(a) Create a document showing your wiring diagrams, your python code, and a single picture of your
+set up showing the LED wiring. Post this document in pdf format in the misc folder of your github
+repo.
+(b) Modify the python code to make the LED blink three times rapidly followed by a pause of five
+seconds, followed by four rapid blinks, another pause and repeating the whole thing again in a loop till
+you terminate the python script. Put your python code in code/ directory in your git repository, with the
+filename myBlinkingLed.py. Push to remote.
+
+2. In this exercise, you will modify the posted python programs. It will give you practice with using
+python to write data to sqlite databases.
+Write a python function readTime() that returns a list of the form [xdate, xtime] that has current date in
+xdate, and current time in xtime. The string for xdate has the form 'Year-Month-Day' (like 2016-02-16)
+and the time string xtime has the form 'Hour-minute-second' as in '17-10-49' . We are using a 24-hour
+clock. You don't need to show me readTime() function. Just make sure it works as expected.
+Now modify the readTime() function, call it logTime(), to log the same date and time strings to a
+sqlite database. Create a testTime.db database file with two text columns to hold these values.
+Every time you call the python function logTime(), the current date and time should be logged to the db
+file.
+Put the logTime() function in a python script file logTime.py and put it in the code/ folder of your
+github repo. Make sure you provide ample comments in your code file. Push to remote.
+
+3. Recreate the temperature logging program (I showed you in class last Monday) on your Pi after
+attaching the temperature sensor (make sure it is working). Call your logger script logTemperature.py.
+Now change the program or create a cron job, to log the temperature every 30 seconds for the next 10
+minutes. Start logging temperature, and hold the metal sensor in your hand for 5 minutes, and then let
+go. The log should show a climbing temperature and then a gradual fall off. Place your script in the
+code/ directory of your git repo.
+Export the temperature data to a CSV file. Create a graph of the temperature during the 10 minute
+interval (use a spreadsheet if you don't know how to draw graphs any other way). Create a PDF file
+containing the code, a picture of your setup and and the graph you got, named myTempProfile.pdf.
+Put myTempProfile.pdf in the doc/ directory of your git repo.
+
+4. Push all changes to your git rep to remote, and click on the Assignment Submission link on
+BlackBoard. 
