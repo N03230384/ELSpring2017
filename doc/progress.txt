@@ -1,0 +1,19 @@
+Interim report
+Embedded Linux
+Francesca Diamente, Hui Li, Mikaela Stiklickas
+April 17, 2017
+
+
+Our project is the automatic plant watering system. We are using a moisture sensor, humidity and temperature sensor, motor to create the self watering plant system. The application will record data from the sensors, and if the moisture is below a point it will trigger the watering pump. Regardless of if the plant is watered or not the data collected will be stored in a mysql database or a text file (still figuring out which is the best way). The data will be picked up by the web page for display. We have set up the basic web page that we will be implementing to show the data for the plants environment. An example of the data we plan to collect is: 
+timestamp humidityMoisture %tempFShould pump be turned on (0 or 1)04/10/2017 14:00:3045%50%700 
+Done:
+Since linux is new to us, we have spent the first couple weeks researching each sensor. So far we have set up each individual sensor and tested it with python code to make sure each hardware is recording the appropriate data. We have also outlined exactly how the main loop will operate. This week we are working on integrating those individual codes together in the main loop. Like mentioned before we have the basics of the webpage set up as well.
+
+to do:
+Finish up main loop
+Web/display aspect
+
+Contributions:
+Francesca: researched, setup hardware, outlined main loop, outlined database format, setup and hosted draft of the web page
+Hui Li: researched and followed tutorial to code for different sensors to test them individually.
+Mikaela Stiklickas: researched coding, found data sheets on hardware pieces, helped test water pump
