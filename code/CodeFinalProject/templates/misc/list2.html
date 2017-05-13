@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Database</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+
+</head>
+<body>
+
+
+<div class="container">
+  <h2>History of Plants</h2>           
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th>Time stamp</th>
+        <th>Soil Temp</th>
+        <th>Humidity</th>
+        <th>Air Temp</th>
+        <th>Moisture</th>
+        <th>Pump Status</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for row in rows %}
+      <tr>
+         <td>{{row["data_time"]}}</td>
+         <td>{{'%0.2f'| format(row["temp1"]|float)}}</td>
+         <td>{{'%0.2f'| format(row["humidity"]|float)}}</td>
+         <td>{{'%0.2f'| format(row["temp2"]|float)}}</td>
+         <td>{{row["moisture"]}}%</td>
+         <td>{{row["pumpStatus"]}}</td>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+</div>
+</body>
+</html>
+

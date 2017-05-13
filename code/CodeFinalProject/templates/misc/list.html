@@ -1,0 +1,74 @@
+{% for row in rows %}<!doctype html>
+<html lang="en"><head>  
+<meta charset="utf-8" />
+
+   <!-- import plugin script -->      
+   <meta name=viewport content='width=700'> 
+   <script src='../static/Chart.min.js'></script>   
+   <div style="float:center;">
+   <body style="background-color:#fff3f7;">
+     <h1 style="color:#558000; font-family:Lucida Console;"> History of Plant</h1>
+      <table border = 1 style="background-color:white; font-family:Lucida Console;">
+         <thead>
+            <td>Time stamp</td>
+            <td>Soil Temp</td>
+            <td>Humidity</td>
+            <td>Air Temp</td>
+            <td>Moisture</td>
+            <td>Pump Status</td>
+         </thead>
+         
+         {% for row in rows %}
+            <tr>
+               <td>{{row["data_time"]}}</td>
+               <td>{{'%0.2f'| format(row["temp1"]|float)}}</td>
+               <td>{{'%0.2f'| format(row["humidity"]|float)}}</td>
+               <td>{{'%0.2f'| format(row["temp2"]|float)}}</td>	
+               <td>{{row["moisture"]}}%</td>
+               <td>{{row["pumpStatus"]}}</td>
+            </tr>
+         {% endfor %}
+      </table>
+      </div>
+      <canvas id="chart" width="600" height="400"></canvas>
+
+      <script>
+	var barData = { 
+	 labels : [{% for item in labels %}
+                  "{{item}}",
+              {% endfor %}],
+      	 datasets : [
+      	 {
+        	 fillColor: "rgba(151,187,205,0.2)",
+           	 strokeColor: "rgba(151,187,205,1)",
+           	 pointColor: "rgba(151,187,205,1)",
+              data : [{% for item in values %}
+                      {{item}},
+                    {% endfor %}] 
+  		<!-- data : [{% for item in values %}
+                      {{item|tojson|safe}},
+                    {% endfor %}] -->
+      	  }
+      	  ]
+  	}
+     
+	var mychart = document.getElementById("chart").getContext("2d");
+ 
+   	steps = 10
+   	max = 10
+   // draw bar chart
+   	new Chart(mychart).Bar(barData, {
+        	scaleOverride: true,
+        	scaleSteps: steps,
+        	scaleStepWidth: Math.ceil(max / steps),
+        	scaleStartValue: 0,
+        	scaleShowVerticalLines: true,
+        	scaleShowGridLines : true,
+        	barShowStroke : true,
+        	scaleShowLabels: true
+   	});
+
+      </script>      
+
+   </body>
+</html>
